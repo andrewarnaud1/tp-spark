@@ -2,7 +2,7 @@
 
 # TP - Spark
 
-Lien vers le GitHub : (https://github.com/andrewarnaud1/tp-spark)
+Lien vers le GitHub : [Lien GitHub](https://github.com/andrewarnaud1/tp-spark)
 
 **Participants :**
 - Andrew Arnaud
