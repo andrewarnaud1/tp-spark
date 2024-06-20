@@ -6,7 +6,7 @@ Lien vers le GitHub : [Lien GitHub](https://github.com/andrewarnaud1/tp-spark)
 
 **Participants :**
 - Andrew Arnaud
-- Mohame Diallo
+- Mohamed Diallo
 - Souleimane Hadbi
 
 ---
