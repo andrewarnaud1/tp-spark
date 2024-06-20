@@ -1,5 +1,3 @@
----
-
 # TP - Spark
 
 Lien vers le GitHub : [Lien GitHub](https://github.com/andrewarnaud1/tp-spark)
