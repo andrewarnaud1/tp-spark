@@ -258,6 +258,12 @@ Nous obtenons une carte avec des points. Lorsque nous cliquons sur un point, nou
 
 ### Autres visualisations
 
+Voici la présentation complète pour chaque graphique avec le code, le graphique, les explications et les suggestions.
+
+---
+
+## Distribution de la disponibilité des vélos
+
 ```python
 import plotly.express as px
 # Histogramme de la disponibilité des vélos
@@ -267,6 +273,23 @@ fig.show()
 ```
 
 ![Histogramme](https://github.com/andrewarnaud1/tp-spark/blob/main/19.png?raw=true)
+
+### Explication
+
+- **Description :** Ce graphique en histogramme représente la distribution du nombre de vélos disponibles par station.
+- **Axes :**
+  - L'axe des x représente le nombre de vélos disponibles.
+  - L'axe des y représente le nombre de stations correspondantes.
+- **Interprétation :** On observe que la majorité des stations ont entre 0 et 10 vélos disponibles, avec un nombre décroissant de stations à mesure que le nombre de vélos disponibles augmente. Cela indique une répartition inégale de la disponibilité des vélos parmi les stations.
+
+### Suggestions
+
+- **Rééquilibrage des vélos :** Il pourrait être bénéfique de rééquilibrer les vélos entre les stations pour éviter la sous-utilisation de certaines et la surcharge d'autres.
+- **Augmenter la disponibilité :** Investir dans l'augmentation du nombre de vélos dans les stations avec une demande élevée mais peu de vélos disponibles.
+
+---
+
+## Disponibilité moyenne des vélos par ville
 
 ```python
 # Calculer la disponibilité moyenne des vélos par contrat (ville)
@@ -280,6 +303,23 @@ fig.show()
 
 ![Disponibilité moyenne](https://github.com/andrewarnaud1/tp-spark/blob/main/20.png?raw=true)
 
+### Explication
+
+- **Description :** Ce graphique à barres montre la disponibilité moyenne des vélos pour chaque ville (contrat).
+- **Axes :**
+  - L'axe des x représente les différentes villes.
+  - L'axe des y représente la disponibilité moyenne des vélos dans ces villes.
+- **Interprétation :** Ce graphique permet d'identifier les villes où la disponibilité moyenne des vélos est plus élevée. Par exemple, Lund et Dublin montrent une disponibilité moyenne supérieure comparée à d'autres villes comme Maribor ou Cergy-Pontoise.
+
+### Suggestions
+
+- **Analyse de la demande locale :** Mener des études pour comprendre pourquoi certaines villes comme Lund et Dublin ont une disponibilité élevée et d'autres, comme Maribor et Cergy-Pontoise, ont une disponibilité faible. Adapter l'offre de vélos en fonction des résultats.
+- **Campagnes de promotion :** Dans les villes avec une faible disponibilité, JCDecaux pourrait lancer des campagnes promotionnelles pour augmenter l'utilisation des vélos.
+
+---
+
+## Disponibilité des vélos pour les 10 premières stations
+
 ```python
 # Diagramme de barres de la disponibilité des vélos pour les premières stations
 top_n = 10  # Nombre de premières stations à afficher
@@ -291,6 +331,23 @@ fig.show()
 ```
 
 ![Diagramme](https://github.com/andrewarnaud1/tp-spark/blob/main/21.png?raw=true)
+
+### Explication
+
+- **Description :** Ce graphique à barres représente le nombre de vélos disponibles pour les 10 premières stations.
+- **Axes :**
+  - L'axe des x représente les noms ou codes des stations.
+  - L'axe des y représente le nombre de vélos disponibles dans ces stations.
+- **Interprétation :** Certaines stations, comme "198-CALLE_FONTANARS_DELS_AFORINS", ont une disponibilité de vélos significativement plus élevée par rapport à d'autres, comme "LIDL_BEŽIGRAD". Cela peut indiquer une meilleure gestion ou une demande plus faible dans certaines stations.
+
+### Suggestions
+
+- **Suivi des performances des stations :** Mettre en place un système de suivi des performances des stations pour identifier les raisons des variations dans la disponibilité des vélos.
+- **Amélioration de la gestion des stocks :** Déployer des mécanismes de gestion des stocks plus dynamiques pour ajuster rapidement le nombre de vélos en fonction de la demande.
+
+---
+
+## Nombre de stations ouvertes et fermées
 
 ```python
 # Compter les stations ouvertes et fermées
@@ -304,6 +361,23 @@ fig.show()
 
 ![Somme stations ouvertes fermées](https://github.com/andrewarnaud1/tp-spark/blob/main/22.png?raw=true)
 
+### Explication
+
+- **Description :** Ce graphique à barres montre le nombre de stations ouvertes par rapport au nombre de stations fermées.
+- **Axes :**
+  - L'axe des x représente le statut des stations (ouvertes ou fermées).
+  - L'axe des y représente le nombre de stations correspondantes.
+- **Interprétation :** La grande majorité des stations sont ouvertes, tandis qu'un nombre très réduit de stations est fermé. Cela montre une disponibilité générale du service de vélos en libre-service.
+
+### Suggestions
+
+- **Maintenance proactive :** Continuer à assurer une maintenance proactive pour garder les stations ouvertes et minimiser les fermetures.
+- **Expansion stratégique :** Évaluer les zones où l'ouverture de nouvelles stations pourrait être bénéfique, en utilisant les données de disponibilité des vélos pour identifier les zones à forte demande.
+
+---
+
+## Disponibilité des vélos par ville (carte en bulles)
+
 ```python
 fig = px.scatter(df, x='lat', y='lng', color='contract_name', size='available_bikes', hover_name='name',
                  title='Disponibilité des vélos par ville')
@@ -312,3 +386,19 @@ fig.show()
 ```
 
 ![Scatter plot](https://github.com/andrewarnaud1/tp-spark/blob/main/23.png?raw=true)
+
+### Explication
+
+- **Description :** Ce graphique en bulles montre la disponibilité des vélos par ville en fonction des coordonnées géographiques (latitude et longitude).
+- **Axes :**
+  - L'axe des x représente la latitude.
+  - L'axe des y représente la longitude.
+- **Couleurs et tailles :**
+  - Chaque bulle représente une ville, avec une couleur différente pour chaque ville.
+  - La taille des bulles est proportionnelle au nombre de vélos disponibles.
+- **Interprétation :** Ce graphique permet de visualiser la répartition géographique des villes avec leur disponibilité de vélos. Par exemple, on peut voir que certaines villes comme Toulouse et Ljubljana ont une plus grande disponibilité de vélos (représentées par des bulles plus grandes) par rapport à d'autres villes.
+
+### Suggestions
+
+- **Analyse géographique :** Utiliser les données géographiques pour identifier les zones avec une disponibilité insuffisante et ajuster l'infrastructure en conséquence.
+- **Collaboration avec les autorités locales :** Collaborer avec les municipalités pour identifier les besoins spécifiques en vélos dans différentes zones de la ville et planifier l'expansion des services.
