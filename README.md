@@ -179,6 +179,8 @@ display(spark.read.format("parquet").load("/Volumes/iut_approfondissement_436252
 
 ### Du flux à la base de données
 
+Le flux ne fonctionne pas. nous n'avons pas réussi à le mettre en place. Lorsque l'opération démarre elle ne finis pas sont traitement :
+
 ![Flux base de données](https://github.com/andrewarnaud1/tp-spark/blob/main/17.png?raw=true)
 
 ---
